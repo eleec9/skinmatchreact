@@ -6,7 +6,7 @@ export const navLinks = [
   { href: "#shop", label: "SHOP" },
   { href: "#how-it-works", label: "HOW IT WORKS" },
   { href: "#quiz", label: "SKIN QUIZ" },
-  { href: "#checker", label: "PRODUCT CHECK" },
+  { href: "#checker", label: "CREAM CHECK" },
   { href: "#reviews", label: "REVIEWS" },
   { href: "#contacts", label: "CONTACTS" }
 ];

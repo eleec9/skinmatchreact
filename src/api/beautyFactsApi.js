@@ -1,5 +1,5 @@
 // Open Beauty Facts: free, public database of cosmetic products (no API key needed).
-// We use its search to find the product the user already owns and read its ingredients.
+// We use its search to find the face cream the user already owns and read its ingredients.
 // Docs: https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/
 
 const SEARCH_URL = "https://world.openbeautyfacts.org/cgi/search.pl";
@@ -12,8 +12,13 @@ export async function searchBeautyProducts(searchText) {
     search_terms: searchText,
     search_simple: "1",
     action: "process",
+    // Search only inside the "face creams" category:
+    // without this filter the database also returns shampoos, toothpastes, shower gels...
+    tagtype_0: "categories",
+    tag_contains_0: "contains",
+    tag_0: "face-creams",
     json: "1",
-    page_size: "8",
+    page_size: "24",
     fields: FIELDS
   });
 
@@ -42,19 +47,21 @@ export async function searchBeautyProducts(searchText) {
 
   const data = await response.json();
 
-  // Keep only products with a name (once per barcode), and give every product the same simple shape
+  // Keep only products we can actually check: with a barcode, an ingredient list,
+  // and once per barcode. Then give every product the same simple shape.
   const seenCodes = new Set();
   return (data.products || [])
+    .map((product) => ({
+      code: product.code,
+      name: product.product_name || product.brands || "",
+      brand: product.brands || "",
+      image: product.image_front_small_url || "",
+      ingredients: (product.ingredients_text_en || product.ingredients_text || "").trim()
+    }))
     .filter((product) => {
-      if (!product.product_name || !product.code || seenCodes.has(product.code)) return false;
+      if (!product.code || !product.name || !product.ingredients || seenCodes.has(product.code)) return false;
       seenCodes.add(product.code);
       return true;
     })
-    .map((product) => ({
-      code: product.code,
-      name: product.product_name,
-      brand: product.brands || "",
-      image: product.image_front_small_url || "",
-      ingredients: product.ingredients_text_en || product.ingredients_text || ""
-    }));
+    .slice(0, 12);
 }

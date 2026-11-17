@@ -44,7 +44,7 @@ export default function Result({ result, products, productsStatus, onAddToCart, 
       </div>
 
       <div className="result-actions">
-        <a href="#checker" className="button button-primary">CHECK A PRODUCT YOU ALREADY USE ↓</a>
+        <a href="#checker" className="button button-primary">CHECK THE CREAM YOU USE ↓</a>
         <button type="button" className="button button-secondary" onClick={handleRetake}>RETAKE THE QUIZ ↻</button>
       </div>
     </div>

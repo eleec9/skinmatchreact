@@ -22,9 +22,9 @@ Project 2 keeps the same concept, brand and design as Project 1 and rebuilds it 
 - **Engagement goal:** make the user take the quiz, understand which ingredients suit their skin
   and discover products that fit their routine and budget, then add them to the bag.
 - **Main CTA:** **"Build my routine" / "Reveal my SkinMatch"** (the skin quiz).
-- **Secondary CTA (new):** **"Check the product you use"**. The user searches a product they already
-  own and sees whether it contains the ingredients suggested for their skin; if something is missing,
-  SkinMatch suggests the shop product that contains it.
+- **Secondary CTA (new):** **"Is your everyday cream right for you?"**. The user searches the face cream
+  they already use (often a supermarket brand) and sees whether it contains the ingredients suggested
+  for their skin; if something is missing, SkinMatch suggests the Korean skincare product that adds it.
 
 ## 3. React component structure
 
@@ -114,15 +114,19 @@ A progress line ("3 of 6 questions answered") updates while the user answers.
 
 - **What it is:** free, open database of cosmetic products built by volunteers. No API key.
 - **Endpoint:**
-  `GET https://world.openbeautyfacts.org/cgi/search.pl?search_terms=<text>&search_simple=1&action=process&json=1&page_size=8&fields=code,product_name,brands,image_front_small_url,ingredients_text,ingredients_text_en`
+  `GET https://world.openbeautyfacts.org/cgi/search.pl?search_terms=<text>&search_simple=1&action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=face-creams&json=1&page_size=24&fields=code,product_name,brands,image_front_small_url,ingredients_text,ingredients_text_en`
+- **Category filter:** `tag_0=face-creams` limits the search to face creams (about 500 products);
+  without it the database also returns shampoos, toothpastes and shower gels.
 - **Data received (JSON):** `{ products: [ { code, product_name, brands, image_front_small_url, ingredients_text } ] }`
-- **Used for:** the "Check the product you use" section: list of matching products → the user picks
+- **Used for:** the "Is your everyday cream right for you?" section (quick-search buttons for popular
+  brands such as Nivea, Neutrogena, Garnier): list of matching face creams → the user picks
   one → its ingredient list (INCI) is read to find key ingredients (e.g. "sodium hyaluronate" =
   hyaluronic acid), fragrance/alcohol, and the allergies typed in the quiz.
 
 **Data flow:** user clicks *Search* → `handleSubmit` validates the text → `searchBeautyProducts()`
 calls `fetch()` → we check `response.ok` (and status 429 = too many requests) →
-`response.json()` → the products are cleaned (name required, no duplicates) → `setResults()` →
+`response.json()` → the products are cleaned (only products with a name and an ingredient list,
+no duplicates, max 12) → `setResults()` →
 React re-renders the list.
 
 **Error handling:** validation before the request (min. 3 characters), 15-second timeout

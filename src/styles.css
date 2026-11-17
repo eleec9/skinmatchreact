@@ -3154,6 +3154,10 @@ button.button-primary:disabled,
         flex-direction: column;
     }
 
+    .checker-form .button-primary {
+        width: 100%;
+    }
+
     .checker-analysis {
         padding: 20px 16px;
     }
@@ -3176,4 +3180,30 @@ button.button-primary:disabled,
         width: 100%;
         justify-content: center;
     }
+}
+
+/* Product checker: quick searches */
+.checker-quick {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: 700px;
+    margin: 16px auto 0;
+}
+
+.checker-quick span {
+    color: #80665e;
+    font-size: 13px;
+}
+
+.checker-quick .shop-filter {
+    padding: 7px 14px;
+    font-size: 13px;
+}
+
+.checker-quick .shop-filter:disabled {
+    opacity: 0.5;
+    cursor: wait;
 }
