@@ -1,0 +1,145 @@
+[
+  {
+    "id": "snail-essence",
+    "brand": "COSRX",
+    "name": "Advanced Snail 96 Mucin Essence",
+    "keyIngredient": "Snail mucin",
+    "description": "A lightweight essence that helps hydrate and soften the skin.",
+    "price": 25.0,
+    "image": "images/snail-essence.png",
+    "category": "hydration",
+    "mustHave": true
+  },
+  {
+    "id": "heartleaf-toner",
+    "brand": "ANUA",
+    "name": "Heartleaf 77% Soothing Toner",
+    "keyIngredient": "Heartleaf extract",
+    "description": "A lightweight toner designed to soothe and refresh the skin.",
+    "price": 23.0,
+    "image": "images/anua.jpg",
+    "category": "blemishes",
+    "mustHave": true
+  },
+  {
+    "id": "hyaluronic-serum",
+    "brand": "TORRIDEN",
+    "name": "DIVE-IN Low Molecular Hyaluronic Acid Serum",
+    "keyIngredient": "Hyaluronic acid",
+    "description": "A watery serum with five types of hyaluronic acid for deep, weightless hydration.",
+    "price": 23.0,
+    "image": "images/torriden-serum.jpg",
+    "category": "hydration",
+    "mustHave": true
+  },
+  {
+    "id": "centella-ampoule",
+    "brand": "SKIN1004",
+    "name": "Madagascar Centella Ampoule",
+    "keyIngredient": "Centella asiatica",
+    "description": "A light ampoule made with centella asiatica extract to calm and comfort the skin.",
+    "price": 29.5,
+    "image": "images/skin1004-centella.jpg",
+    "category": "sensitive",
+    "mustHave": true
+  },
+  {
+    "id": "glow-serum",
+    "brand": "BEAUTY OF JOSEON",
+    "name": "Glow Serum",
+    "keyIngredient": "Propolis + Niacinamide",
+    "description": "A serum formulated to support a smoother, more radiant-looking complexion.",
+    "price": 17.0,
+    "image": "images/glow-serum.jpg",
+    "category": "glow",
+    "mustHave": false
+  },
+  {
+    "id": "barrier-cream",
+    "brand": "ETUDE",
+    "name": "SoonJung 2x Barrier Intensive Cream",
+    "keyIngredient": "Panthenol",
+    "description": "A moisturiser designed to support the skin barrier.",
+    "price": 22.0,
+    "image": "images/etude-cream.jpg",
+    "category": "sensitive",
+    "mustHave": false
+  },
+  {
+    "id": "collagen-cream",
+    "brand": "MEDICUBE",
+    "name": "Collagen Jelly Cream",
+    "keyIngredient": "Collagen",
+    "description": "A bouncy jelly cream with collagen to hydrate and support a smoother-looking skin.",
+    "price": 18.0,
+    "image": "images/medicube-collagen.jpg",
+    "category": "hydration",
+    "mustHave": false
+  },
+  {
+    "id": "bha-cleanser",
+    "brand": "COSRX",
+    "name": "Salicylic Acid Daily Gentle Cleanser",
+    "keyIngredient": "Salicylic acid (BHA)",
+    "description": "A foaming cleanser with salicylic acid that helps remove excess sebum and impurities.",
+    "price": 9.0,
+    "image": "images/cosrx-bha-cleanser.jpg",
+    "category": "blemishes",
+    "mustHave": false
+  },
+  {
+    "id": "aha-liquid",
+    "brand": "COSRX",
+    "name": "AHA 7 Whitehead Power Liquid",
+    "keyIngredient": "Glycolic acid (AHA)",
+    "description": "An exfoliating liquid with 7% glycolic acid to smooth texture and boost radiance.",
+    "price": 25.0,
+    "image": "images/cosrx-aha-liquid.jpg",
+    "category": "glow",
+    "mustHave": false
+  },
+  {
+    "id": "vitamin-drop",
+    "brand": "KLAIRS",
+    "name": "Freshly Juiced Vitamin Drop",
+    "keyIngredient": "Vitamin C",
+    "description": "A gentle vitamin C serum with centella that helps brighten the look of dull, uneven skin.",
+    "price": 27.0,
+    "image": "images/klairs-vitamin-drop.jpg",
+    "category": "glow",
+    "mustHave": false
+  },
+  {
+    "id": "niacinamide-serum",
+    "brand": "ANUA",
+    "name": "Niacinamide 10% + TXA 4% Serum",
+    "keyIngredient": "Niacinamide",
+    "description": "A brightening serum that targets the appearance of dark spots and uneven tone.",
+    "price": 25.0,
+    "image": "images/anua-niacinamide.jpg",
+    "category": "glow",
+    "mustHave": false
+  },
+  {
+    "id": "retinol-cream",
+    "brand": "COSRX",
+    "name": "The Retinol 0.1 Cream",
+    "keyIngredient": "Retinol",
+    "description": "A beginner-friendly night cream with 0.1% retinol for the look of fine lines.",
+    "price": 34.5,
+    "image": "images/cosrx-retinol.jpg",
+    "category": "anti-age",
+    "mustHave": false
+  },
+  {
+    "id": "peptide-serum",
+    "brand": "MEDICUBE",
+    "name": "PDRN Pink Peptide Serum",
+    "keyIngredient": "Peptides",
+    "description": "A lightweight serum with peptides and PDRN for plump, bouncy-looking skin.",
+    "price": 23.0,
+    "image": "images/medicube-peptide.jpg",
+    "category": "anti-age",
+    "mustHave": false
+  }
+]
