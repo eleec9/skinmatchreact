@@ -145,6 +145,10 @@ Then open the address shown in the terminal (usually http://localhost:5173).
 
 Production build: `npm run build` (output in `dist/`).
 
+**Online version (GitHub Pages):** the workflow in `.github/workflows/deploy.yml` builds and publishes
+the site at every push to `main`. One-time setup: *Settings → Pages → Source: GitHub Actions*.
+The site is then available at `https://eleec9.github.io/skinmatchreact/`.
+
 ## 7. Use of AI tools
 
 We used Claude (Anthropic) as a coding assistant to:
