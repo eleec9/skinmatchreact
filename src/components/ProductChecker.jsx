@@ -12,7 +12,8 @@ import CheckerAnalysis from "./CheckerAnalysis.jsx";
 //   query       -> text in the search field (controlled input)
 //   inputError  -> validation message (empty or too short search)
 //   status      -> "idle" | "loading" | "success" | "error"
-//   results     -> products returned by the API
+//   results     -> products returned by the API (only the ones with an ingredient list)
+//   foundCount  -> how many face creams matched, including the ones without ingredients
 //   apiError    -> message shown when the request fails
 //   selected    -> the product the user clicked
 
@@ -24,6 +25,7 @@ export default function ProductChecker({ result, products, onAddToCart }) {
   const [inputError, setInputError] = useState("");
   const [status, setStatus] = useState("idle");
   const [results, setResults] = useState([]);
+  const [foundCount, setFoundCount] = useState(0);
   const [apiError, setApiError] = useState("");
   const [selected, setSelected] = useState(null);
 
@@ -42,8 +44,9 @@ export default function ProductChecker({ result, products, onAddToCart }) {
     setStatus("loading");
 
     try {
-      const foundProducts = await searchBeautyProducts(searchText);
-      setResults(foundProducts);
+      const data = await searchBeautyProducts(searchText);
+      setResults(data.products);
+      setFoundCount(data.foundCount);
       setStatus("success");
     } catch (error) {
       setApiError(error.message);
@@ -114,9 +117,21 @@ export default function ProductChecker({ result, products, onAddToCart }) {
           </div>
         )}
 
-        {status === "success" && results.length === 0 && (
+        {/* Nothing found: unknown brand or product name */}
+        {status === "success" && foundCount === 0 && (
           <p className="status-message">
-            No face creams with an ingredient list found for "{query.trim()}". Try just the brand, or one of the suggestions above.
+            We couldn't find "{query.trim()}" among the face creams in the Open Beauty Facts database.
+            Check the spelling, try just the brand name, or pick one of the suggestions above.
+          </p>
+        )}
+
+        {/* Found, but none of the results has an ingredient list we can read */}
+        {status === "success" && foundCount > 0 && results.length === 0 && (
+          <p className="status-message">
+            {foundCount === 1
+              ? `We found a face cream for "${query.trim()}", but its ingredient list hasn't been added to the database yet, so we can't check it.`
+              : `We found ${foundCount} face creams for "${query.trim()}", but their ingredient lists haven't been added to the database yet, so we can't check them.`}
+            {" "}Try another product or one of the suggestions above.
           </p>
         )}
 

@@ -47,10 +47,13 @@ export async function searchBeautyProducts(searchText) {
 
   const data = await response.json();
 
+  // How many face creams match the search, before removing the ones we can't check
+  const foundCount = (data.products || []).length;
+
   // Keep only products we can actually check: with a barcode, an ingredient list,
   // and once per barcode. Then give every product the same simple shape.
   const seenCodes = new Set();
-  return (data.products || [])
+  const products = (data.products || [])
     .map((product) => ({
       code: product.code,
       name: product.product_name || product.brands || "",
@@ -64,4 +67,6 @@ export async function searchBeautyProducts(searchText) {
       return true;
     })
     .slice(0, 12);
+
+  return { products, foundCount };
 }
