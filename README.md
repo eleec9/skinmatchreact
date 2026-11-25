@@ -2,7 +2,7 @@
 
 **Digital Interaction Engagement Strategies — IULM**
 
-**Group members:** _Name Surname_, _Name Surname_, _Name Surname_ <!-- TODO: add the group members -->
+**Group members:** _Eleonora Anna Castaldo_, _Sara Bellini_, _Yasmine El Hibari_ <!-- TODO: add the group members -->
 
 ---
 
