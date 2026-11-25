@@ -155,10 +155,10 @@ The site is then available at `https://eleec9.github.io/skinmatchreact/`.
 
 ## 7. Use of AI tools
 
-We used Claude (Anthropic) as a coding assistant to:
-- plan the split of the Project 1 code into React components;
-- convert the DOM code of `script.js` (querySelector, innerHTML) into state and props;
-- find a public skincare API coherent with our topic and write the fetch / error handling.
+In accordance with the course guidelines, we used Claude (Anthropic) strictly for **learning concepts, brainstorming, and outlining** our implementation:
 
-Every part was reviewed by the group. The comments at the top of each component explain its role,
-its state and its props, so that each member can explain the implementation.
+- **Architecture brainstorming:** exploring best practices on how to structure and split the Project 1 layout into reusable React components.
+- **Concept learning:** understanding the conceptual shift from imperative DOM manipulation (`querySelector`, `innerHTML`) to React's declarative approach using `useState` and `props`.
+- **API exploration:** researching free public skincare/cosmetic APIs and studying the standard patterns for asynchronous `fetch()` calls, loading states, and error handling in React.
+
+All code was written, assembled, and tested directly by the group members. Every component includes top-level comments explaining its role, state, and props so that each member fully understands and can explain the entire codebase.
