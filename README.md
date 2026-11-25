@@ -158,7 +158,7 @@ The site is then available at `https://eleec9.github.io/skinmatchreact/`.
 We used Claude (Anthropic) as a coding assistant to:
 - plan the split of the Project 1 code into React components;
 - convert the DOM code of `script.js` (querySelector, innerHTML) into state and props;
-- find a public skincare API and write the fetch / error handling.
+- find a public skincare API coherent with our topic and write the fetch / error handling.
 
 Every part was reviewed by the group. The comments at the top of each component explain its role,
 its state and its props, so that each member can explain the implementation.
