@@ -162,3 +162,15 @@ In accordance with the course guidelines, we used Claude (Anthropic) strictly fo
 - **API exploration:** researching free public skincare/cosmetic APIs and studying the standard patterns for asynchronous `fetch()` calls, loading states, and error handling in React.
 
 All code was written, assembled, and tested directly by the group members. Every component includes top-level comments explaining its role, state, and props so that each member fully understands and can explain the entire codebase.
+
+## 8. Improvements since Project 1 & Known limitations
+
+### Main improvements since Project 1
+- Migrated the static HTML/CSS/JS prototype into a modular, component-based React application using Vite.
+- Replaced manual DOM manipulation with declarative state management (`useState`), props, and conditional rendering.
+- Added the new **"Is your everyday cream right for you?"** interactive feature powered by the external Open Beauty Facts API, complete with loading states, input validation, and error handling.
+- Loaded the SkinMatch product catalog dynamically via `fetch()` from a structured JSON endpoint instead of hardcoded HTML.
+
+### Known limitations
+- **External API data completeness:** Open Beauty Facts is a crowdsourced database, so some cosmetic products may be missing, have incomplete INCI ingredient lists, or trigger rate limits (`429`) if searched too rapidly.
+- **No persistent backend:** Cart items, quiz results, and the demo checkout are currently handled purely on the client side and reset on page refresh (a custom Node.js/Express backend will be implemented in the next phase).
